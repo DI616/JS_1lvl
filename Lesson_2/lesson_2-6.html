@@ -1,0 +1,11 @@
+<script>
+    console.log(0 == null); //false (null равен только undefined)
+    console.log(0 === null); //false (null равен только undefined)
+    console.log(0 != null); //true (null равен только undefined)
+    console.log(0 !== null); //true (null равен только undefined)
+    console.log(0 <= null); //true (null приводится к нулю при проверке равенства)
+    console.log(0 >= null); //true (null приводится к нулю при проверке равенства)
+    console.log(0 < null); //false (null приводится к нулю при проверке равенства)
+    console.log(0 > null); //false (null приводится к нулю при проверке равенства)
+    //При сравнении значение null приводится к числу (0), при проверке равенства null с чем-то ещё действует спецификация (null равен только undefined и самому себе)
+</script>

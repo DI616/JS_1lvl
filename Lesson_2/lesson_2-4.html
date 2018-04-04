@@ -1,0 +1,43 @@
+<script>
+    function sum(a, b) {
+        var x = a + b;
+        return x;
+    }
+
+    function difference(a, b) {
+        var x = a - b;
+        return x;
+    }
+
+    function product(a, b) {
+        var x = a * b;
+        return x;
+    }
+
+    function quotient(a, b) {
+        var x = a / b;
+        return x;
+    }
+
+    function mathOperation(a, b, operation) {
+        var x = operation(a, b);
+        return x;
+    }
+    var a = parseInt(prompt("a"));
+    var b = parseInt(prompt("b"));
+    var operation = prompt("operation (sum, dif, pro, quo)");
+    switch (operation) {
+    case "sum":
+        alert(mathOperation(a, b, sum));
+        break;
+    case "dif":
+        alert(mathOperation(a, b, difference));
+        break;
+    case "pro":
+        alert(mathOperation(a, b, product));
+        break;
+    case "quo":
+        alert(mathOperation(a, b, quotient));
+        break;
+    }
+</script>
