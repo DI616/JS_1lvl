@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = 0;
+        var arr = [];
+        var res = [];
+        while (i <= 100) {
+            arr.push(i);
+            var x = 0;
+            for (var a = 0; a < arr.length - 1; a++) {
+                if ((i % arr[a] == 0) && (arr[a] != 1)) {
+                    x = 1;
+                }
+            }
+            if (x == 0 && i > 1) {
+                res.push(i);
+            }
+            i++;
+        }
+        document.write(res);
+    </script>
+</body>
+
+</html>
