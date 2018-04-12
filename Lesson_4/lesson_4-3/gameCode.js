@@ -75,7 +75,7 @@ alert('Добро пожаловать в игру!\nВы можете восп�
 var x = false;
 while (!x) {
     var question = works.a00 + works.a1 + works.a2 + works.a3 + works.a4;
-    var abridgedQuestion = works.a00 + works.a1 + works.a2;
+    var abridgedQuestion = works.a00 + works.a1 + works.a3;
     var realAnswer = 3;
     getAnswer(getQuestion(question), realAnswer);
     if (x) break;
@@ -95,7 +95,7 @@ while (!x) {
     getAnswer(getQuestion(question), realAnswer);
     if (x) break;
     question = works.e00 + works.e1 + works.e2 + works.e3 + works.e4;
-    abridgedQuestion = works.e00 + works.e1 + works.e4;
+    abridgedQuestion = works.e00 + works.e2 + works.e4;
     realAnswer = 4;
     getAnswer(getQuestion(question), realAnswer);
     if (x) break;
