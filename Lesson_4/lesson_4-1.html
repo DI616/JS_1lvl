@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var result = {
+            hundreds: +0
+            , dozens: +0
+            , units: +0
+        };
+        var input = false;
+        while (!input) {
+            input = prompt("Введите число от нуля до 999:");
+            if (input < 0 || isNaN(input)) {
+                alert("Неверное значение. Попробуйте еще раз.")
+                input = false;
+            }
+        }
+        var number = input.split("");
+        if (number.length == 1) {
+            result.units = +number[0];
+        }
+        else if (number.length == 2) {
+            result.units = +number[1];
+            result.dozens = +number[0];
+        }
+        else if (number.length == 3) {
+            result.units = +number[2];
+            result.dozens = +number[1];
+            result.hundreds = +number[0];
+        }
+        else if (number.length > 3) {
+            alert("Вы превысили допустимое значение. Расчет невозможен.");
+            delete result.units;
+            delete result.dozens;
+            delete result.hundreds;
+        }
+        console.log(result);
+        if (input <= 999) alert('Сотен: ' + result.hundreds + '\n' + 'Десяток: ' + result.dozens + '\n' + 'Единиц: ' + result.units + '\n');
+    </script>
+</body>
+
+</html>
