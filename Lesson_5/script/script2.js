@@ -10,8 +10,7 @@ function getLetter(name, num) {
     for (var i = 0; i < 8; i++) {
         inSquare.children[num].appendChild(document.createElement('div'));
         inSquare.children[num].children[i].className = name;
-        inSquare.children[num].children[i].innerText = '&#' + (i + 65) + ';';
-        //document.body.('&#' + (i + 65) + '; ');
+        //inSquare.children[num].children[i].innerText = '&#' + (i + 65) + ';';
         switch (i) {
         case 0:
             inSquare.children[num].children[i].innerText = 'A';
