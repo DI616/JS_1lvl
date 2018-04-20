@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="script.js"></script>-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="selector">
+        <div class="left1" id="left"><img src="img/left.png" alt=""></div>
+        <div class="big-img" id="bigImg"></div>
+        <div class="right1" id="right"><img src="img/right.png" alt=""></div>
+    </div>
+    <script>
+        var slides = ['img/b1.jpg', 'img/b2.jpg', 'img/error.jpg'];
+        var frame = 0;
+        var appDiv = document.getElementById("bigImg");
+        appDiv.innerHTML = "<img src='" + slides[frame] + "'></img>";
+        var next = document.getElementById("right");
+        var previous = document.getElementById("left");
+        next.onclick = right;
+        previous.onclick = left;
+        appDiv.onclick = right;
+
+        function left() {
+            frame--;
+            if (frame < 0) frame = slides.length - 1;
+            appDiv.innerHTML = "<img src='" + slides[frame] + "'></img>";
+        }
+
+        function right() {
+            frame++;
+            if (frame == slides.length) frame = 0;
+            appDiv.innerHTML = "<img src='" + slides[frame] + "'></img>";
+        }
+        addEventListener("keydown", function (event) {
+            if (event.keyCode == 37) left();
+        });
+        addEventListener("keyup", function (event) {
+            if (event.keyCode == 39) right();
+        });
+    </script>
+</body>
+
+</html>

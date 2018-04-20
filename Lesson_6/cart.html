@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="shop">
+        <div class="catalog">
+            <p id="g1">Товар 1&nbsp;&nbsp;1500</p>
+            <button id="b_1">Купить</button>
+            <p id="g2">Товар 2&nbsp;&nbsp;2700</p>
+            <button id="b_2">Купить</button>
+            <p id="g3">Товар 3&nbsp;&nbsp;400</p>
+            <button id="b_3">Купить</button>
+            <p id="g4">Товар 4&nbsp;&nbsp;520</p>
+            <button id="b_4">Купить</button>
+            <p id="g5">Товар 5&nbsp;&nbsp;3900</p>
+            <button id="b_5">Купить</button>
+        </div>
+        <div class="cart">
+            <div class="goods" id="goods"></div>
+            <button id="calc">Рассчитать стоимость товаров</button>
+            <div id="score">0</div>
+        </div>
+    </div>
+    <script>
+        var buys = [1500, 2700, 400, 520, 3900];
+        var buy = [];
+
+        function addToCart(obj) {
+            var newGoods = obj.target.id;
+            var newId = newGoods.split("_");
+            var newCart = document.getElementById("g" + newId[1]);
+            var inCart = document.createElement("p");
+            inCart.innerText = "Товар_" + newId[1] + ": " + buys[+(newId[1]) - 1];
+            inCart.id = "s" + (buy.length + 1);
+            var remove = document.createElement("button");
+            remove.innerText = "Удалить из корзины";
+            remove.id = "r_" + (buy.length + 1);
+            remove.setAttribute("onclick", "removeToCart(" + (buy.length + 1) + ")")
+            var goods = document.getElementById("goods");
+            goods.appendChild(inCart);
+            goods.appendChild(remove);
+            buy.push(buys[+(newId[1]) - 1]);
+        }
+
+        function removeToCart(num) {
+            var removeGoods = document.getElementById("s" + num);
+            removeGoods.remove();
+            var removeButton = document.getElementById("r_" + num);
+            removeButton.remove();
+            delete buy[num - 1];
+        }
+
+        function getTotalCost() {
+            var cost = 0;
+            for (var i = 0; i < buy.length; i++) {
+                if (!isNaN(buy[i])) {
+                    cost += buy[i];
+                }
+            }
+            score.innerText = cost;
+        }
+        var score = document.getElementById("score");
+        var calc = document.getElementById("calc");
+        var b1 = document.getElementById("b_1");
+        var b2 = document.getElementById("b_2");
+        var b3 = document.getElementById("b_3");
+        var b4 = document.getElementById("b_4");
+        var b5 = document.getElementById("b_5");
+        b1.onclick = addToCart;
+        b2.onclick = addToCart;
+        b3.onclick = addToCart;
+        b4.onclick = addToCart;
+        b5.onclick = addToCart;
+        calc.onclick = getTotalCost;
+    </script>
+</body>
+
+</html>

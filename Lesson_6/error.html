@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="script.js"></script>-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="big-img" id="bigImg">
+        <p>Нажмите на изображение, чтобы увеличить его</p>
+    </div>
+    <div class="selector">
+        <div class="small-images" id="sM">
+            <div class="small-img"><img src="img/1.jpg" alt="" id="smallImg-1"></div>
+            <div class="small-img"><img src="img/2%20.jpg" alt="" id="smallImg-2"></div>
+            <div class="small-img"><img src="img/3.jpg" alt="" id="smallImg-3"></div>
+        </div>
+    </div>
+    <script>
+        function init() {
+            var images = smallImages.getElementsByTagName("img");
+            for (var i = 0; i < images.length; i++) {
+                images[i].onclick = getImage;
+            }
+        }
+
+        function getImage(obj) {
+            var appDiv = document.getElementById("bigImg");
+            appDiv.innerHTML = "";
+            var eventElement = obj.target;
+            var imageNameParts = eventElement.id.split("-");
+            var src = "img/b" + imageNameParts[1] + ".jpg";
+            var imageDomElement = document.createElement("img");
+            imageDomElement.src = src;
+            appDiv.appendChild(imageDomElement);
+            imageDomElement.onerror = function () {
+                appDiv.innerHTML = "<p>Изображение не найдено</p>";
+            }
+        }
+        var smallImages = document.getElementById("sM");
+        var smallImg1 = document.getElementById("smallImg-1");
+        smallImg1.onclick = init;
+        var smallImg2 = document.getElementById("smallImg-2");
+        smallImg2.onclick = init;
+        var smallImg3 = document.getElementById("smallImg-3");
+        smallImg3.onclick = init;
+    </script>
+</body>
+
+</html>
